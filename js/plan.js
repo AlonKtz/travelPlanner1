@@ -56,12 +56,12 @@ window.addEventListener("DOMContentLoaded", () => {
 			return true;
 		} else {
 			startResult.textContent = "Please Use Future Dates Only";
+			startResult.style.color = "red";
+			return true;
 		}
 
 		// check end date input (if)
 
-		return true;
-	}
 
 	checkBtn.addEventListener("click", checkDates);
-});
+}});
