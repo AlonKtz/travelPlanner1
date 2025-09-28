@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
-// Dates Rules and stuff
+// Dates Rules
 
 window.addEventListener("DOMContentLoaded", () => {
 	const startInput = document.getElementById("start");
@@ -58,13 +58,13 @@ window.addEventListener("DOMContentLoaded", () => {
 		const today = new Date().setHours(0, 0, 0, 0);
 
 		if (startInput.value === "") {
-			startResult.textContent = "❗ Pick a start date first!";
+			startResult.textContent = " Pick a start date first❗";
 			startResult.style.color = "orange";
 			return false;
 		}
 
 		if (endInput.value === "") {
-			endResult.textContent = "❗ Pick an end date!";
+			endResult.textContent = " Pick an end date❗";
 			endResult.style.color = "orange";
 			return false;
 		}
