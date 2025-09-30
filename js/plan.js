@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function resetTripForm() {
 	document.getElementById("destination").value = "";
-	document.getElementById("startResult").value = "";
-	document.getElementById("endResult").value = "";
+	document.getElementById("startResult").textContent = "";
+	document.getElementById("endResult").textContent = "";
 }
 
 // reseting the check button result
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	form.addEventListener("reset", () => {
 		startResult.textContent = "";
-		endResult.textContent = "";
+		endResult.textContenttent = "";
 	});
 });
 
@@ -56,6 +56,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	function checkDates() {
 		const today = new Date().setHours(0, 0, 0, 0);
+		startResult.textContent = "";
+		endResult.textContent = "";
 
 		if (startInput.value === "") {
 			startResult.textContent = " Pick a start date first❗";
@@ -79,6 +81,14 @@ window.addEventListener("DOMContentLoaded", () => {
 		} else {
 			startResult.textContent = "Please Use Future Dates Only";
 			startResult.style.color = "red";
+		}
+
+		if (endDate >= startDate) {
+			endResult.textContent = "Good";
+			endResult.style.color = "green";
+		} else {
+			endResult.textContent = "End date must be after the start date";
+			endResult.style.color = "red";
 		}
 	}
 
