@@ -97,3 +97,41 @@ window.addEventListener("DOMContentLoaded", () => {
 		checkBtn.addEventListener("click", checkDates);
 	}
 });
+
+// local storage
+
+document.addEventListener("DOMContentLoaded", () => {
+  const LS_KEY = "trips_v1";
+  const form = document.getElementById("tripForm");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Read the fields that already exist in your HTML:
+    const trip = {
+      destination: document.getElementById("destination").value.trim(),
+      tripType: document.getElementById("tripType").value,
+      startDate: document.getElementById("start").value,
+      endDate: document.getElementById("end").value,
+      notes: document.getElementById("notes").value.trim(),
+      createdAt: new Date().toISOString(),
+    };
+
+    // Tiny guard so we don't save empties
+    if (!trip.destination || !trip.startDate || !trip.endDate) {
+      alert("Please fill destination and dates.");
+      return;
+    }
+
+    // Load -> push -> save (one line each)
+    const list = JSON.parse(localStorage.getItem(LS_KEY) || "[]");
+    list.push(trip);
+    localStorage.setItem(LS_KEY, JSON.stringify(list));
+
+    alert("Trip saved. Check Saved Trips page.");
+    form.reset();
+  });
+});
+
+
+

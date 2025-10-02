@@ -14,7 +14,7 @@
 		<!-- If you read this and you are not in Alon Katz's work, its copied. -->
 		<main>
 			<h1 class="pageTitle">Plan a Trip</h1>
-			<form class="tripForm">
+			<form class="tripForm" id="tripForm">
 				<label for="destination">Destination:</label><br />
 				<input list="countries" id="destination" name="destination" required />
 				<!-- all 195 countries ad a datalist -->
@@ -242,6 +242,8 @@
 
 				<input type="submit" value="Plan & Save Trip" />
 				<input type="reset" value="Reset" />
+
+				<p id="tripMsg" class="trip-msg"></p>
 			</form>
 		</main>
 
