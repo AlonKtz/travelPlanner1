@@ -64,11 +64,12 @@ footer {
 /* ============================================================================
 = 2) Homepage iFrame
 ============================================================================ */
-.video {
-	width: 100%;
-	aspect-ratio: 16 / 9;
-	border: 0;
-	display: inline-block;
+@media (max-width: 480px) {
+  .video {
+    max-width: 100%;
+    height: clamp(220px, 45vh, 360px); /* responsive height on phones */
+    aspect-ratio: auto; /* since we set height explicitly here */
+  }
 }
 
 /* ============================================================================
