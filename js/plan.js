@@ -74,22 +74,35 @@ window.addEventListener("DOMContentLoaded", () => {
 		const startDate = new Date(startInput.value).setHours(0, 0, 0, 0);
 		const endDate = new Date(endInput.value).setHours(0, 0, 0, 0);
 
-		let ok = true;
-		if (startDate >= today) {
-			startResult.textContent = "Good";
-			startResult.style.color = "green";
-		} else {
+		// Checks Start date
+		let valid = true;
+		if (startDate < today){
 			startResult.textContent = "Please Use Future Dates Only";
 			startResult.style.color = "red";
+			valid = false;
 		}
 
-		if (endDate >= startDate) {
-			endResult.textContent = "Good";
-			endResult.style.color = "green";
-		} else {
-			endResult.textContent = "End date must be after the start date";
+		// Checks End date
+		if (endDate < startDate) {
+			endResult.textContent = "End Date must be after the start date";
 			endResult.style.color = "red";
+			valid = false;
 		}
+
+		if (startDate === endDate) {
+			endResult.textContent = "We plan minimum 2-day trips";
+			endResult.style.color = "red";
+			valid = false;
+		}
+
+		// if both are good
+		if (valid) {
+			startResult.textContent = "Ready";
+			startResult.style.color = "green";
+			endResult.textContent = "";
+		}
+
+
 	}
 
 	// This line should ALWAYS run after DOM content is loaded

@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Weather · Travel Planner</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
-    <!-- NAVBAR (loaded via app.js) -->
-    <header id="navbar"></header>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Weather · Travel Planner</title>
+		<link rel="stylesheet" href="/css/styles.css" />
+		<script src="/js/app.js" defer></script>
+		<script src="/js/weather.js" defer></script>
+	</head>
+	<body>
+		<!-- NAVBAR (loaded via app.js) -->
+		<header id="navbar"></header>
 
-    <main>
-      <h1 class="pageTitle">Weather</h1>
-      <p style="text-align:center; margin-top:20px;">API incoming...</p>
-    </main>
+		<main>
+			<h1 class="pageTitle">World Wide Weather</h1>
+			<h2>Service provided by open-meteo.com</h2>
 
-    <!-- FOOTER (loaded via app.js) -->
-    <footer id="footer"></footer>
+			<div
+				id="weatherApp"
+				style="max-width: 480px; margin: 20px auto; text-align: left"
+			>
+				<label
+					for="cityInput"
+					style="display: block; font-weight: bold; margin-bottom: 6px"
+					>City or place</label
+				>
+				<input
+					id="cityInput"
+					type="text"
+					placeholder="e.g., Tel Aviv"
+					style="
+						width: 100%;
+						padding: 8px 10px;
+						border: 1px solid #bbb;
+						border-radius: 6px;
+						box-sizing: border-box;
+					"
+				/>
+				<button
+					id="cityBtn"
+					type="button"
+					style="
+						margin-top: 10px;
+						background: green;
+						color: #fff;
+						border: none;
+						padding: 8px 16px;
+						border-radius: 6px;
+						cursor: pointer;
+						font-weight: bold;
+					"
+				>
+					Get Weather
+				</button>
+				<button
+					id="resetBtn"
+					type="button"
+					style="
+						margin-top: 10px;
+						margin-left: 8px;
+						background: #888;
+						color: #fff;
+						border: none;
+						padding: 8px 16px;
+						border-radius: 6px;
+						cursor: pointer;
+						font-weight: bold;
+					"
+				>
+					Reset
+				</button>
 
-    <script src="/js/app.js" defer></script>
-  </body>
+				<div id="weatherMsg" style="margin-top: 12px; font-weight: bold"></div>
+				<div id="weatherCard" style="margin-top: 16px"></div>
+				<div id="weatherTable" style="margin-top: 12px"></div>
+			</div>
+		</main>
+
+		<!-- FOOTER (loaded via app.js) -->
+		<footer id="footer"></footer>
+	</body>
 </html>
