@@ -262,6 +262,9 @@ main {
 footer {
   position: static;       /* ensure it's not fixed */
   margin-top: auto;       /* pushes footer to the bottom of the page */
+  bottom: auto;    /* fixing the bottom     */
+  width: 100%;
+
 }
 
 /* Default (desktop/tablet): fill the space between navbar and footer */
