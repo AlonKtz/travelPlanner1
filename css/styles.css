@@ -10,11 +10,6 @@ body {
 	color: #222;
 }
 
-/* Accent text used across pages */
-.One-Stop-Shop {
-	color: green;
-	text-decoration: underline;
-}
 
 /* Common page titles */
 .pageTitle {
@@ -57,19 +52,36 @@ nav a:hover {
 	right: 0;
 	bottom: 0;
 	z-index: 10;
+	height: 50px;
 }
-
 
 /* ============================================================================
-= 2) Homepage iFrame
+= 2) Homepage iFrame & media
 ============================================================================ */
-@media (max-width: 480px) {
-	.video {
-		max-width: 100%;
-		height: clamp(220px, 45vh, 360px); /* responsive height on phones */
-		aspect-ratio: auto; /* since we set height explicitly here */
-	}
+img, video {
+  max-width: 100%;
+  height: auto;
 }
+
+/* Desktop / tablet: iframe styled with red-brick border */
+.iframe-full {
+  display: block;
+  width: 90%;                  /* leaves some space from page edges */
+  height: 95%;
+  margin: 20px auto;           /* centers horizontally */
+  border-radius: 12px;         /* soft corners */
+  flex: 1;
+}
+
+/* Mobile: responsive height + smaller border */
+@media (max-width: 480px) {
+  .iframe-full {
+    width: 95%;
+    height: clamp(280px, 70vh, 520px);
+    border-width: 3px;
+  }
+}
+
 
 /* ============================================================================
 = 3) PAGE: PLAN A TRIP (Form & Validation)
@@ -226,6 +238,19 @@ nav a:hover {
 	font-weight: bold;
 }
 
+#clearTripsBtn {
+	display: inline-block;
+	width: auto;
+	padding: 8px 16px;
+	background: green;
+	color: #fff;
+	border: 0;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
+	align-self: center; /* Solves the bug of the expanded button */
+}
+
 /* ============================================================================
 = 5) RESPONSIVE
 ============================================================================ */
@@ -259,9 +284,9 @@ body {
 	height: 100%;
 }
 
-/* Make the page a vertical flex layout; no manual bottom padding needed */
+/* Make the page a vertical flex layout; */
 body {
-	min-height: 100vh;
+	min-height: 100px;
 	display: flex;
 	flex-direction: column;
 	padding-bottom: 0; /* overrides the earlier padding-bottom: 100px */
@@ -273,24 +298,7 @@ main {
 	display: flex; /* so children (like iframe) can flex inside */
 	flex-direction: column;
 	min-height: 0; /* important: allows child to actually shrink/scroll */
-	padding-bottom: 0; /* overrides old padding hack if any remains */
+	padding-bottom: 70px; /* overrides old padding hack if any remains */
 }
 
 
-/* Default (desktop/tablet): fill the space between navbar and footer */
-.iframe-full {
-	flex: 1 1 auto; /* grow to fill the column height */
-	width: 100%;
-	height: 100%;
-	border: 0;
-	display: block;
-}
-
-/* Small screens: don't fill 100%—pick a smart, responsive height */
-@media (max-width: 480px) {
-	.iframe-full {
-		flex: 0 0 auto; /* stop stretching to full column height */
-		height: clamp(280px, 70vh, 520px); /* >=280px, ~70% of viewport, <=520px */
-		width: 100%;
-	}
-}
