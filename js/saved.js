@@ -63,15 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function render() {
     const trips = JSON.parse(localStorage.getItem(LS_KEY) || "[]");
+    trips.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)); // sorts by
     if (!trips.length) {
       listEl.innerHTML = "<li>No trips yet. Plan one first.</li>";
       return;
     }
-    listEl.innerHTML = trips.map(t => {
-      const period = `${fmt(t.startDate)} → ${fmt(t.endDate)}`;
-      const notes = t.notes ? ` — ${escapeHtml(t.notes)}` : "";
-      return `<li><strong>${escapeHtml(t.destination)}</strong> (${escapeHtml(t.tripType)}) · ${period}${notes}</li>`;
-    }).join("");
+listEl.innerHTML = trips.map((t, i) => {
+  const period = `${fmt(t.startDate)} → ${fmt(t.endDate)}`;
+  const notes = t.notes ? ` <br>Note: ${escapeHtml(t.notes)}` : "";
+  return `
+    <li>
+      <strong>${i + 1}. ${escapeHtml(t.destination)}</strong>
+      (${escapeHtml(t.tripType)}) → ${period}${notes}
+    </li>`;
+}).join("");
+
   }
 
   function fmt(d){ try { return new Date(d).toLocaleDateString(); } catch { return d; } }
