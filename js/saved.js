@@ -74,7 +74,7 @@ listEl.innerHTML = trips.map((t, i) => {
   return `
     <li>
       <strong>${i + 1}. ${escapeHtml(t.destination)}</strong>
-      (${escapeHtml(t.tripType)}) → ${period}${notes}
+      ${escapeHtml(t.tripType)} <br> ${period}${notes}
     </li>`;
 }).join("");
 
