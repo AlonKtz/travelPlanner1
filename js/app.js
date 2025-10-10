@@ -1,3 +1,4 @@
+// Handles the Navbar and footer for the entire app.
 document.addEventListener("DOMContentLoaded", function () {
   // Load navbar
   const navbar = document.getElementById("navbar");

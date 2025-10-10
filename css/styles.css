@@ -10,7 +10,6 @@ body {
 	color: #222;
 }
 
-
 /* Common page titles */
 .pageTitle {
 	font-size: 28px;
@@ -58,30 +57,30 @@ nav a:hover {
 /* ============================================================================
 = 2) Homepage iFrame & media
 ============================================================================ */
-img, video {
-  max-width: 100%;
-  height: auto;
+img,
+video {
+	max-width: 100%;
+	height: auto;
 }
 
 /* Desktop / tablet: iframe styled with red-brick border */
 .iframe-full {
-  display: block;
-  width: 90%;                  /* leaves some space from page edges */
-  height: 95%;
-  margin: 20px auto;           /* centers horizontally */
-  border-radius: 12px;         /* soft corners */
-  flex: 1;
+	display: block;
+	width: 90%; /* leaves some space from page edges */
+	height: 95%;
+	margin: 20px auto; /* centers horizontally */
+	border-radius: 12px; /* soft corners */
+	flex: 1;
 }
 
 /* Mobile: responsive height + smaller border */
 @media (max-width: 480px) {
-  .iframe-full {
-    width: 95%;
-    height: clamp(280px, 70vh, 520px);
-    border-width: 3px;
-  }
+	.iframe-full {
+		width: 95%;
+		height: clamp(280px, 70vh, 520px);
+		border-width: 3px;
+	}
 }
-
 
 /* ============================================================================
 = 3) PAGE: PLAN A TRIP (Form & Validation)
@@ -269,9 +268,62 @@ weather page
 	background-color: #0b7a0b;
 	transform: scale(1.03);
 }
+
 #weatherApp table th,
 #weatherApp table td {
-	font-size: 14px;
+	font-size: 16px;
+}
+
+#weatherMsg {
+	margin-top: 12px;
+	font-weight: bold;
+}
+
+#weatherCard {
+	margin-top: 12px;
+}
+
+#weatherApp {
+	max-width: 480px;
+	margin: 20px auto;
+	text-align: left;
+}
+
+#weatherTable {
+	margin-top: 12px
+}
+
+#resetBtn {
+	margin-top: 10px;
+	margin-left: 8px;
+	background: #888;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#cityBtn {
+	margin-top: 10px;
+	background: green;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#cityInput {
+	width: 100%;
+	padding: 8px 10px;
+	border: 1px solid #bbb;
+	border-radius: 6px;
+	box-sizing: border-box;
+	display: block;
+	margin-top: 12px;
 }
 
 /* ====================================
@@ -300,5 +352,3 @@ main {
 	min-height: 0; /* important: allows child to actually shrink/scroll */
 	padding-bottom: 70px; /* overrides old padding hack if any remains */
 }
-
-
