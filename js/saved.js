@@ -1,28 +1,27 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  // NAVBAR
+document.addEventListener("DOMContentLoaded", function () {
+  // Load navbar
   const navbar = document.getElementById("navbar");
   if (navbar) {
-    try {
-      const res = await fetch("/pages/nav.html");
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      navbar.innerHTML = await res.text();
-    } catch (err) {
-      console.error("Failed to load nav:", err);
-    }
+    fetch("/pages/nav.html")
+      .then(response => response.text())
+      .then(html => {
+        navbar.innerHTML = html;
+      })
+      .catch(error => console.log("Error loading navbar:", error));
   }
 
-  // FOOTER
+  // Load footer
   const footer = document.getElementById("footer");
   if (footer) {
-    try {
-      const res = await fetch("/pages/footer.html");
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      footer.innerHTML = await res.text();
-    } catch (err) {
-      console.error("Failed to load footer:", err);
-    }
+    fetch("/pages/footer.html")
+      .then(response => response.text())
+      .then(html => {
+        footer.innerHTML = html;
+      })
+      .catch(error => console.log("Error loading footer:", error));
   }
 });
+
 
 // /js/saved.js — super simple render
 document.addEventListener("DOMContentLoaded", () => {
